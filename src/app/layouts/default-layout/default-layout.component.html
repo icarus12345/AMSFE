@@ -1,0 +1,51 @@
+<mat-drawer-container class="drawer-container" autosize>
+    <mat-drawer #drawer class="" mode="over" position="end" (openedChange)="onOpenedChange($event)" malihu-scrollbar [scrollbarOptions]="{ axis: 'y', theme: 'minimal-dark' }">
+        <div>
+            <mat-list>
+                <div mat-subheader style="position:sticky; top: 0;">YOUR CART</div>
+                <mat-list-item *ngFor="let item of items" style="height: auto;">
+                    <!-- <img matListAvatar src="..." alt="..."> -->
+                    <mat-icon mat-list-icon>wallpaper</mat-icon>
+                    <div mat-line>{{item.name}}</div>
+                    <div mat-line> {{item.updated | date}} </div>
+                    <div mat-line class="number-form-field">
+                        <mat-form-field appearance="fill" hintLabel="Max bla bla" >
+                            <mat-label>Number</mat-label>
+                            <button 
+                                mat-icon-button 
+                                matPrefix 
+                                >
+                                <mat-icon>remove</mat-icon>
+                            </button>
+                            <input matInput type="text" [ngModel]="item.qty">
+                            <button 
+                                mat-icon-button 
+                                matSuffix 
+                                >
+                                <mat-icon>add</mat-icon>
+                            </button>
+                            <mat-hint align="end">{{100000 | currency}}</mat-hint>
+                            <mat-error>Invalid </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <app-header>Header</app-header>
+        <div class="container-xxl my-md-4">
+            
+                <router-outlet></router-outlet>
+                <button type="button" mat-button (click)="drawer.toggle()">
+                    Open Cart Sidebar
+                </button>
+        </div>
+        <!-- <app-sidebar></app-sidebar> -->
+
+        <footer>Footer</footer>
+    </mat-drawer-content>
+
+</mat-drawer-container>

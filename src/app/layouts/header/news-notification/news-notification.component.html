@@ -1,0 +1,17 @@
+
+<li class="nav-item dropdown d-flex align-items-center">
+    <a class="nav-link dropdown-toggle p-2" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <mat-icon size="16" class="navbar-nav-svg d-inline-block align-text-top">notifications</mat-icon>
+    </a>
+    <div class="dropdown-menu">
+        <mat-list>
+            <div mat-subheader>NEW UPDATE</div>
+            <mat-list-item *ngFor="let note of notes">
+              <mat-icon mat-list-icon>{{note.icon}}</mat-icon>
+              <div mat-line>{{note.name}}</div>
+              <div mat-line> {{note.updated | date}} </div>
+            </mat-list-item>
+          </mat-list>
+    </div>
+</li>

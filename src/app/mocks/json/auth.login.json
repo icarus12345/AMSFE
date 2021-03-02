@@ -1,0 +1,9 @@
+{
+    "status": "ok",
+    "message": "Authenticated",
+    "data": {
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC92MVwvYXV0aFwvbG9naW4iLCJpYXQiOjE1OTcyODIwNjEsImV4cCI6MTU5NzQ5ODA2MSwibmJmIjoxNTk3MjgyMDYxLCJqdGkiOiI5VjF5dzBwM0prOW5CNkhMIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ZQkMYLAN3TgfHz6OAwYP8sPa-Ktzl_Pjik9NOT3vI9g",
+        "token_type": "bearer",
+        "expires_in": 216000
+    }
+}

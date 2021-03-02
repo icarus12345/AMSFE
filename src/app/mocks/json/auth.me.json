@@ -1,0 +1,12 @@
+{
+    "status": "ok",
+    "message": "Success",
+    "data": {
+        "user":{
+            "id": 1,
+            "username": "User",
+            "firstName": "Jose",
+            "lastName": "Misa"
+        }
+    }
+}

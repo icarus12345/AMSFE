@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+*,*::before,*::after
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+@mixin transform($property) 
+    -webkit-transform: $property
+    -ms-transform: $property
+    transform: $property
+
+@mixin box-shadow($property)
+    -webkit-box-shadow: $property
+    -ms-box-shadow: $property
+    box-shadow: $property
+
+@keyframes spinner 
+    to
+      transform: rotate(360deg)
+
+header,
+footer
+    background: #000
+    color: #fff
+
+.bd-navbar .navbar-nav-svg 
+    width: 1rem
+    height: 1rem
+
+@mixin matIconSize($size) 
+    font-size: $size * 1px
+    width: $size * 1px
+    height: $size * 1px
+
+@each $size in 16, 20, 24, 28, 32 
+  mat-icon[size="$size"] 
+    @include matIconSize($size)
+  
+
+mat-icon[size="16"]
+    font-size: 16px
+    width: 16px
+    height:16px
+
+mat-icon[size="32"]
+    font-size: 32px
+    width: 32px
+    height:32px
+
+.spinner:before  
+    content: ''
+    box-sizing: border-box
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 20px
+    height: 20px
+    margin-top: -10px
+    margin-left: -10px
+    border-radius: 50%
+    border: 2px solid rgba(0, 0, 0, .1)
+    border-top-color: #03A9F4
+    animation: spinner .8s linear infinite
+
+.mat-list-item
+  height: auto
+@media (min-width: 768px)
+    .bd-layout 
+        display: flex
+        
+
+@media (min-width: 992px)
+    .bd-layout 
+        aside
+            nav
+                width:240px
+
+
+        
+    

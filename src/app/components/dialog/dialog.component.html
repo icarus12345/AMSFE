@@ -1,0 +1,13 @@
+<h1 mat-dialog-title *ngIf="data.title">{{data.title}}</h1>
+<div mat-dialog-content>
+  <p *ngIf="data.message" [innerHTML]="data.message"></p>
+  <mat-form-field *ngIf="data.prompt">
+    <mat-label>{{data.prompt.name}}</mat-label>
+    <input matInput [(ngModel)]="data.prompt.value">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="onNoClick()" *ngIf="type == 'confirm'" [color]="data.NoColor || ''">{{data.NoText  || 'CANCEL'}}</button>
+  <button mat-flat-button [class.spinner]="Loading" (click)="onYesClick()" cdkFocusInitial [color]="data.YesColor || 'primary'" [disabled]="Loading">{{data.YesText  || 'OK'}}</button>
+  <!-- <button mat-button *ngIf="data.prompt" [mat-dialog-close]="data.prompt.value" cdkFocusInitial>{{data.YesText  || 'OK'}}</button> -->
+</div>

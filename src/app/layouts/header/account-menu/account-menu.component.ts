@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, CartService } from '@app/services';
+import { AuthService } from '@app/services';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginFormComponent } from '@app/components/login-form/login-form.component';
-import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 import { YourCartComponent } from '@app/components/your-cart/your-cart.component';
+
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { skip } from 'rxjs/operators';
 
 @Component({
   selector: 'app-account-menu',
@@ -14,17 +17,17 @@ export class AccountMenuComponent implements OnInit {
 
   user: any = null;
   constructor(
-    public cartService:CartService,
     public authService:AuthService,
     public dialog: MatDialog,
-    private _bottomSheet: MatBottomSheet
+    private _overlay: Overlay
   ) { }
 
   ngOnInit(): void {
-    this.authService.authState
+    this.authService.observable
+      .pipe(skip(1))
       .subscribe(
-        user => {
-          this.user = user
+        (d) => {
+          this.user = d.user
         }
       );
   }
@@ -35,9 +38,19 @@ export class AccountMenuComponent implements OnInit {
     this.authService.logout()
   }
   showYourCart(){
-    const config: MatBottomSheetConfig = {
-      
-     };
-    this._bottomSheet.open(YourCartComponent, config);
+    const scrollStrategy = this._overlay.scrollStrategies.block();
+    let overlayRef:any = this._overlay.create({
+      positionStrategy: this._overlay.position()
+        .global()
+        .centerHorizontally()
+        .centerVertically(),
+      hasBackdrop: true,
+      scrollStrategy,
+      backdropClass:['cdk-overlay-dark-backdrop','your-cart-backdrop']
+    })
+    overlayRef.attach(new ComponentPortal(YourCartComponent))
+    overlayRef.backdropClick().subscribe(() => {
+      overlayRef.dispose();
+    });
   }
 }

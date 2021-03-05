@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@app/services';
 import { MatDialog } from '@angular/material/dialog';
+import { skip } from 'rxjs/operators';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authService.authState
+    this.authService.observable
+      .pipe(skip(1))
       .subscribe(
         user => {
           console.log('AuthChange')

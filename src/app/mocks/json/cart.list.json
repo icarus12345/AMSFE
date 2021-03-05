@@ -1,0 +1,61 @@
+{
+    "status": "ok",
+    "message": "Success",
+    "data": {
+        "items": [{
+            "product_id": 1,
+            "quantity": 2,
+            "product": {
+                "id": 1,
+                "code": "P01",
+                "thumbnail": "https://via.placeholder.com/100x100.png?text=Image1",
+                "images": [
+                    "https://via.placeholder.com/480x480.png?text=Image1",
+                    "https://via.placeholder.com/480x480.png?text=Image2",
+                    "https://via.placeholder.com/480x480.png?text=Image3"
+                ],
+                "name": "Product 1",
+                "price": 1000,
+                "discount": 15,
+                "tax": 10,
+                "in_stock": 10
+            }
+        },{
+            "product_id": 2,
+            "quantity": 3,
+            "product": {
+                "id": 2,
+                "code": "P02",
+                "thumbnail": "https://via.placeholder.com/100x100.png?text=Image2",
+                "images": [
+                    "https://via.placeholder.com/480x480.png?text=Image1",
+                    "https://via.placeholder.com/480x480.png?text=Image2",
+                    "https://via.placeholder.com/480x480.png?text=Image3"
+                ],
+                "name": "Product 2",
+                "price": 1200,
+                "discount": 0,
+                "tax": 10,
+                "in_stock": 5
+            }
+        },{
+            "product_id": 3,
+            "quantity": 1,
+            "product": {
+                "id": 3,
+                "code": "P03",
+                "thumbnail": "https://via.placeholder.com/100x100.png?text=Image3",
+                "images": [
+                    "https://via.placeholder.com/480x480.png?text=Image1",
+                    "https://via.placeholder.com/480x480.png?text=Image2",
+                    "https://via.placeholder.com/480x480.png?text=Image3"
+                ],
+                "name": "Product 3",
+                "price": 50,
+                "discount": 20,
+                "tax": 10,
+                "in_stock": 3
+            }
+        }]
+    }
+}

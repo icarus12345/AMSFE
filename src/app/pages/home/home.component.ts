@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, CartService, DialogService } from '@app/services';
 import { Title, Meta } from '@angular/platform-browser';
+import { FormControl, Validators } from '@angular/forms';
+import { skip } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,8 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-
+  email = new FormControl('', [Validators.required, Validators.email]);
+  value = 'Clear me';
   constructor(
     private title: Title,
     private meta: Meta,
@@ -25,7 +28,8 @@ export class HomeComponent implements OnInit {
       { name: 'robots', content: 'index, follow' }
     ]);
 
-    this.authService.authState
+    this.authService.observable
+      .pipe(skip(1))
       .subscribe(
         user => {
           console.log('AuthStateChanged', user)

@@ -7,23 +7,25 @@ import { AuthService } from '@app/services';
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
     constructor(
-        private router: Router,
-        private authService: AuthService
+        private _router: Router,
+        private _authService: AuthService
     ) {
         console.log('AuthGuard::Init')
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         console.log('AuthGuard::canActivate')
-        return this.authService.getInfo()
+        // Check token && redirect to login
+
+        // Check user info.
+        return this._authService.getInfo()
             .pipe(
                 map(res => {
-                    console.log(res,'ressss')
-                    return !!res
+                    return (!!res && !!res.user) || !!this._router.navigate(['forbidden'])
                 }),
                 catchError((err:any) => {
-                    //this.router.navigate(['login']);
-                    console.log('catchError')
+                    this._router.navigate(['forbidden']);
+                    console.log('AuthGuard::catchError')
                     return of(false)
                 })
             );

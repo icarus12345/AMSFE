@@ -8,7 +8,7 @@ const Pending = 0;
 export class JwtInterceptor implements HttpInterceptor {
     public Pending: number = 0;
     constructor(
-        // private authenticationService: AuthenticationService
+        // private _authenticationService: AuthenticationService
         ) { 
 
     }

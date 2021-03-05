@@ -60,7 +60,7 @@ export class UserLayoutComponent implements OnInit, OnDestroy {
     //   }
     // )
     this.subscription.add(
-      this.authService.authState.subscribe(
+      this.authService.observable.subscribe(
         data => {
           console.log('subscribe22222', data)
           
@@ -75,7 +75,7 @@ export class UserLayoutComponent implements OnInit, OnDestroy {
       )
     )
     this.subscription.add(
-      this.authService.authState.subscribe(
+      this.authService.observable.subscribe(
         data => {
           console.log('subscribe33333', data)
         },

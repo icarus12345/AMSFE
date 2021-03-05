@@ -1,0 +1,62 @@
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+*/
+
+@import '~@angular/material/theming';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+
+// Fonts
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$mat-black: (
+  100: #ffecb3,
+  500: #1A1A1A,
+  700: #ffa000,
+  contrast: (
+    100: $dark-primary-text,
+    500: $light-primary-text,
+    700: $dark-primary-text,
+  )
+);
+$artkey-primary: mat-palette($mat-black);
+// $mat-amber: (
+//   100: #ffecb3,
+//   500: #FFB000,
+//   700: #ffa000,
+//   contrast: (
+//     100: $dark-primary-text,
+//     500: $light-primary-text,
+//     700: $dark-primary-text,
+//   )
+// );
+$artkey-accent:  mat-palette($mat-amber, 500, 100, 700);
+
+// The warn palette is optional (defaults to red).
+$artkey-warn:    mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+$artkey-theme: mat-light-theme((
+  color: (
+    primary: $artkey-primary,
+    accent: $artkey-accent,
+    warn: $artkey-warn,  
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($artkey-theme);
+

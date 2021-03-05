@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject, Observer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, retry, first, finalize, share } from 'rxjs/operators';
+import { map, retry, first, finalize, share, skip } from 'rxjs/operators';
 import { environment } from '@environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from '@app/models'
@@ -9,9 +9,8 @@ import { User } from '@app/models'
   providedIn: 'root'
 })
 export class AuthService {
-  private authSubject: BehaviorSubject<User | undefined> = new BehaviorSubject<User | undefined>(undefined);
-  authState: Observable<User | undefined> = this.authSubject.asObservable();
-  public getInfo$: Observable<any> | undefined
+  private subject: BehaviorSubject<User | null> = new BehaviorSubject<User|null>(null);
+  observable: Observable<any> = this.subject.asObservable()//.pipe(skip(1));
 
   constructor(
     private http: HttpClient,
@@ -87,7 +86,7 @@ export class AuthService {
     observable.subscribe(
       data => {
         console.log('subscribe', data)
-        this.authSubject.next(data.user);
+        this.subject.next(data);
       },
       error => {
         console.log(error)
@@ -97,6 +96,6 @@ export class AuthService {
   }
 
   logout() {
-    this.authSubject.next(undefined);
+    this.subject.next(null);
   }
 }

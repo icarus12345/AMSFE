@@ -1,7 +1,15 @@
 .product-list
+    position: relative
     display: flex
     flex-wrap: wrap
     justify-content: space-between
+    margin: 0 -10px
+    &::after
+        content: ''
+        clear: both
     > app-product-item
-        width: calc(100% / 4 - 10px)
+        padding: 10px
+        float: left
+        width: 25%
         margin-bottom: 10px
+        position: relative

@@ -1,3 +1,16 @@
-<form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-</form>
+<mat-form-field appearance="outline" class="rounded-pill">
+    <input matInput type="text" placeholder="Keyword" [formControl]="keywordControl" [matAutocomplete]="auto" [(ngModel)]="store.keyword">
+    <span matSuffix>
+        <button mat-button *ngIf="keyword"  mat-icon-button aria-label="Clear" (click)="keyword=''">
+            <mat-icon size="16">close</mat-icon>
+        </button>
+    </span>
+    <button mat-icon-button matSuffix class="right-rounded-pill">
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>

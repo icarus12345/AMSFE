@@ -28,9 +28,9 @@ export class LoginFormComponent implements OnInit {
     ])
   });
   constructor(
-    public dialogRef: MatDialogRef<LoginFormComponent>,
-    private authService:AuthService,
-    public dialog: MatDialog  
+    private _dialogRef: MatDialogRef<LoginFormComponent>,
+    private _authService:AuthService,
+    private _dialog: MatDialog  
     ) { }
 
   ngOnInit(): void {
@@ -39,11 +39,11 @@ export class LoginFormComponent implements OnInit {
     let data = this.loginFrm.value;
     console.log('doLogin', this.loginFrm.value,this.loginData)
     this.Loading = true;
-    this.authService.login(data.email, data.password)
+    this._authService.login(data.email, data.password)
       .subscribe(
         data => {
           this.Loading = false;
-          this.dialogRef.close()
+          this._dialogRef.close()
         },
         error => {
           console.log(error)
@@ -52,7 +52,7 @@ export class LoginFormComponent implements OnInit {
   }
   
   showRegister(){
-    this.dialogRef.close()
-    this.dialog.open(RegisterFormComponent);
+    this._dialogRef.close()
+    this._dialog.open(RegisterFormComponent);
   }
 }

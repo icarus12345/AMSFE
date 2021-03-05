@@ -12,7 +12,8 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 @NgModule({
@@ -33,6 +34,8 @@ import { BrowserModule } from '@angular/platform-browser';
     AngularMaterialModule,
     RouterModule,
     BrowserModule,
+    OwlModule,
+    MalihuScrollbarModule.forRoot()
   ],
   exports: [
     LoginFormComponent,

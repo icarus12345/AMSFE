@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@app/services';
-import { map, retry, first, finalize, catchError } from 'rxjs/operators';
+import { map, retry, first, finalize, catchError, skip } from 'rxjs/operators';
 
 import {
   Router, Resolve,
@@ -27,6 +27,8 @@ export class AuthResolver implements Resolve<Observable<any>> {
     //     return of(null);
     //   }
     // ));
-    return of(this.authService.authState.subscribe(res=>res));
+    return of(this.authService.observable
+        .pipe(skip(1))
+        .subscribe(res=>res));
   }
 }

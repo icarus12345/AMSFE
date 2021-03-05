@@ -1,72 +1,138 @@
 {{50000|currency:'USD'}}
 {{isShowCart}}
+<button mat-raised-button color="primary">Confirm</button>
+<div class="" style="width: 296px;">
+  <mat-form-field appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+  <app-search-control></app-search-control>
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Clearable input</mat-label>
+    <input matInput type="text" [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon size="16">close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" hintLabel="pat@example.com">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">
+      <mat-icon size="16">error</mat-icon>Not a valid email
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 10 characters" appearance="outline">
+    <mat-label>Enter some input</mat-label>
+    <textarea #input matInput placeholder="Ex. It makes me feel..." cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+    <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Select me</mat-label>
+    <mat-select [disableOptionCentering]="false">
+      <mat-option value="">None</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" (focus)="picker.open()">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
 <section>
-    <div class="example-label">Basic</div>
-    <div class="example-button-row">
-      <button mat-button (click)="alert()">Alert</button>
-      <button mat-button color="primary" (click)="confirm()">Confirm</button>
-      <button mat-button color="accent" (click)="warning()">Warning</button>
-      <button mat-button color="warn" (click)="error()">Error</button>
-      <button mat-button disabled>Disabled</button>
-      <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  <div class="example-label">Basic</div>
+  <div class="example-button-row">
+    <button mat-button (click)="alert()">Alert</button>
+    <button mat-button color="primary" (click)="confirm()">Confirm</button>
+    <button mat-button color="accent" (click)="warning()">Warning</button>
+    <button mat-button color="warn" (click)="error()">Error</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button (click)="alert()">Alert</button>
+    <button mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+    <button mat-raised-button color="accent" (click)="warning()">Warning</button>
+    <button mat-raised-button color="warn" (click)="error()">Error</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Stroked</div>
+  <div class="example-button-row">
+    <button mat-stroked-button (click)="alert()">Alert</button>
+    <button mat-stroked-button color="primary" (click)="confirm()">Confirm</button>
+    <button mat-stroked-button color="accent" (click)="warning()">Warning</button>
+    <button mat-stroked-button color="warn" (click)="error()">Error</button>
+    <button mat-stroked-button disabled>Disabled</button>
+    <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Flat</div>
+  <div class="example-button-row">
+    <button mat-flat-button (click)="alert()">Alert</button>
+    <button mat-flat-button color="primary" (click)="confirm()">Confirm</button>
+    <button mat-flat-button color="accent" (click)="warning()">Warning</button>
+    <button mat-flat-button color="warn" (click)="error()">Error</button>
+    <button mat-flat-button disabled>Disabled</button>
+    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">Icon</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
     </div>
-  </section>
-  <mat-divider></mat-divider>
-  <section>
-    <div class="example-label">Raised</div>
-    <div class="example-button-row">
-      <button mat-raised-button (click)="alert()">Alert</button>
-      <button mat-raised-button color="primary" (click)="confirm()">Confirm</button>
-      <button mat-raised-button color="accent" (click)="warning()">Warning</button>
-      <button mat-raised-button color="warn" (click)="error()">Error</button>
-      <button mat-raised-button disabled>Disabled</button>
-      <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-    </div>
-  </section>
-  <mat-divider></mat-divider>
-  <section>
-    <div class="example-label">Stroked</div>
-    <div class="example-button-row">
-      <button mat-stroked-button (click)="alert()">Alert</button>
-      <button mat-stroked-button color="primary" (click)="confirm()">Confirm</button>
-      <button mat-stroked-button color="accent" (click)="warning()">Warning</button>
-      <button mat-stroked-button color="warn" (click)="error()">Error</button>
-      <button mat-stroked-button disabled>Disabled</button>
-      <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
-    </div>
-  </section>
-  <mat-divider></mat-divider>
-  <section>
-    <div class="example-label">Flat</div>
-    <div class="example-button-row">
-      <button mat-flat-button (click)="alert()">Alert</button>
-      <button mat-flat-button color="primary" (click)="confirm()">Confirm</button>
-      <button mat-flat-button color="accent" (click)="warning()">Warning</button>
-      <button mat-flat-button color="warn" (click)="error()">Error</button>
-      <button mat-flat-button disabled>Disabled</button>
-      <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
-    </div>
-  </section>
-  <mat-divider></mat-divider>
-  <section>
-    <div class="example-label">Icon</div>
-    <div class="example-button-row">
-      <div class="example-flex-container">
-        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-          <mat-icon>home</mat-icon>
-        </button>
-        <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
-          <mat-icon>open_in_new</mat-icon>
-        </button>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>

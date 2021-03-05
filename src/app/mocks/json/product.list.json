@@ -1,0 +1,189 @@
+{
+    "status": "ok",
+    "message": "Success",
+    "data": {
+        "items": [{
+            "id": 1,
+            "code": "P01",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image1",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3"
+            ],
+            "name": "Product 1",
+            "price": 1000,
+            "discount": 15,
+            "tax": 10,
+            "in_stock": 10,
+            "sold": 3,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 4.3,
+            "author": {
+                "id": 1,
+                "name": "Account 2",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U02"
+            }
+        },{
+            "id": 2,
+            "code": "P02",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image2",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3",
+                "https://via.placeholder.com/480x480.png?text=Image4"
+            ],
+            "name": "Product 2",
+            "price": 1200,
+            "discount": 0,
+            "tax": 10,
+            "in_stock": 5,
+            "sold": 4,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 2.1,
+            "author": {
+                "id": 2,
+                "name": "Account 3",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U03"
+            }
+        },{
+            "id": 3,
+            "code": "P03",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image3",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3",
+                "https://via.placeholder.com/480x480.png?text=Image4",
+                "https://via.placeholder.com/480x480.png?text=Image5"
+            ],
+            "name": "Product 3",
+            "price": 50,
+            "discount": 20,
+            "tax": 10,
+            "in_stock": 3,
+            "sold": 100,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 3.7,
+            "author": {
+                "id": 5,
+                "name": "Account 10",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U10"
+            }
+        },{
+            "id": 4,
+            "code": "P04",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image4",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3",
+                "https://via.placeholder.com/480x480.png?text=Image4",
+                "https://via.placeholder.com/480x480.png?text=Image5",
+                "https://via.placeholder.com/480x480.png?text=Image6"
+            ],
+            "name": "Product 4",
+            "price": 70,
+            "discount": 10,
+            "tax": 10,
+            "in_stock": 13,
+            "sold": 40,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 3.27,
+            "author": {
+                "id": 5,
+                "name": "Account 10",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U10"
+            }
+        },{
+            "id": 5,
+            "code": "P05",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image5",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3"
+            ],
+            "name": "Product 5",
+            "price": 50,
+            "discount": 20,
+            "tax": 10,
+            "in_stock": 3,
+            "sold": 100,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 3.7,
+            "author": {
+                "id": 5,
+                "name": "Account 10",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U10"
+            }
+        },{
+            "id": 6,
+            "code": "P06",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image6",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3"
+            ],
+            "name": "Product 6",
+            "price": 50,
+            "discount": 20,
+            "tax": 10,
+            "in_stock": 3,
+            "sold": 100,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 3.7,
+            "author": {
+                "id": 5,
+                "name": "Account 10",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U10"
+            }
+        },{
+            "id": 7,
+            "code": "P07",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image7",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3"
+            ],
+            "name": "Product 7",
+            "price": 50,
+            "discount": 20,
+            "tax": 10,
+            "in_stock": 3,
+            "sold": 100,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 3.7,
+            "author": {
+                "id": 5,
+                "name": "Account 10",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U10"
+            }
+        },{
+            "id": 8,
+            "code": "P08",
+            "thumbnail": "https://via.placeholder.com/100x100.png?text=Image8",
+            "images": [
+                "https://via.placeholder.com/480x480.png?text=Image1",
+                "https://via.placeholder.com/480x480.png?text=Image2",
+                "https://via.placeholder.com/480x480.png?text=Image3"
+            ],
+            "name": "Product 8",
+            "price": 50,
+            "discount": 20,
+            "tax": 10,
+            "in_stock": 3,
+            "sold": 100,
+            "desc": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+            "rate": 3.7,
+            "author": {
+                "id": 5,
+                "name": "Account 10",
+                "avartar": "https://via.placeholder.com/50x50.png?text=U10"
+            }
+        }]
+    }
+}

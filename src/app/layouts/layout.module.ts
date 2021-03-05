@@ -45,7 +45,8 @@ import { FilterSidebarComponent } from './product-layout/filter-sidebar/filter-s
         AngularMaterialModule,
         DefaultLayoutComponent,
         BasicLayoutComponent,
-        UserLayoutComponent
+        UserLayoutComponent,
+        SearchControlComponent
     ],
     imports: [
         RouterModule,

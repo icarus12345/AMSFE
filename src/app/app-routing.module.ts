@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BasicLayoutComponent } from './layouts/basic-layout/basic-layout.component';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { NotFoundComponent } from './pages/errors/not-found/not-found.component';
+import { ForbiddenComponent } from './pages/errors/forbidden/forbidden.component';
 
 import { AuthResolver } from './resolvers/auth.resolver';
 import { AuthGuard } from '@app/helpers'
@@ -39,6 +40,7 @@ const routes: Routes = [
   {
     path: '',
     component: DefaultLayoutComponent,
+    
     children: [
       {
         path: '',
@@ -103,12 +105,30 @@ const routes: Routes = [
       // Product router
       {
         path: 'product',
+        // matcher: (url) => {
+        //   const regex = new RegExp(/(product|categories)/)
+        //   console.log(url,'URL')
+        //   if (url.length === 1 && url[0].path.match(/^(product|category)/)) {
+        //     return {
+        //       consumed: url,
+              
+        //     };
+        //   }
+        //   return null;
+        // },
         component: ProductLayoutComponent,
         resolve: {
         },
         children: [
           {
             path: '',
+            component: ProductListComponent,
+            data: {
+              hideFilterBar: true
+            } 
+          },
+          {
+            path: 'aaa',
             component: ProductListComponent,
             data: {
               hideFilterBar: true
@@ -135,6 +155,10 @@ const routes: Routes = [
   {
     "path": "not-found",
     "component": NotFoundComponent
+  },
+  {
+    path: "forbidden",
+    "component": ForbiddenComponent
   },
   {
     path: "**",

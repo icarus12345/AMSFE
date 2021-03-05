@@ -6,22 +6,22 @@ import { environment } from '@environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class AppService {
 
   private subject = new BehaviorSubject<any>(null);
-  observable = this.subject.asObservable()//.pipe(skip(1));
+  observable = this.subject.asObservable()
   show:boolean = false
 
   constructor(
     private http: HttpClient,
     // public dialog: MatDialog  
   ) { 
-    console.log("CartService::Init")
+    console.log("AppService::Init")
     this.load()
   }
 
   load() {
-    const observable = this.http.get<any>(`${environment.API_URL}/cart`)
+    const observable = this.http.get<any>(`${environment.API_URL}/app-info`)
       .pipe(
         // first(),
         finalize(() => {  }),
@@ -40,6 +40,33 @@ export class CartService {
     observable.subscribe(
       data => {
         this.subject.next(data);
+      },
+      error => {
+        console.log(error)
+      }
+    );
+    return observable;
+  }
+
+  getProductList(){
+    const observable = this.http.get<any>(`${environment.API_URL}/product`)
+      .pipe(
+        // first(),
+        finalize(() => {  }),
+        // retry(3),
+        map(res => {
+          if (res.status) {
+            return res.data;
+          } else {
+            console.log(res.message)
+          }
+        }),
+        share()
+      )
+
+
+    observable.subscribe(
+      data => {
       },
       error => {
         console.log(error)

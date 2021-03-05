@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
-
+import { DialogService } from '@app/services/dialog.service'
 // import { AuthenticationService } from '@app/services';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(
-        // private authenticationService: AuthenticationService
+        // private _authenticationService: AuthenticationService
+        private _dialogService: DialogService
         ) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -19,16 +20,21 @@ export class ErrorInterceptor implements HttpInterceptor {
                     console.log('finalize');
                     console.groupEnd();
                 }),
-                catchError(err => {
+                catchError(httpErrorResponse => {
                     console.log('catchError');
-                    if (err.status === 401) {
+                    if (httpErrorResponse.status === 401) {
                         // auto logout if 401 response returned from api
                         // this.authenticationService.logout();
                         
-                    }
-                    console.log('Error::',err)
-                    const error = err.error.message || err.statusText;
-                    return throwError(error);
+                    }else if(httpErrorResponse)
+                    console.log('Error::',httpErrorResponse)
+                    const title = httpErrorResponse.statusText;
+                    const message = httpErrorResponse.message || httpErrorResponse.statusText;
+                    this._dialogService.error({
+                        title,
+                        message
+                    });
+                    return throwError(httpErrorResponse);
                 })
             )
         return obs;

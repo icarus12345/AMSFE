@@ -25,6 +25,9 @@ import { ProductListComponent } from './pages/product/product-list/product-list.
 import { SearchComponent } from './pages/product/search/search.component';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
+import { ForbiddenComponent } from './pages/errors/forbidden/forbidden.component';
+import { OwlModule } from 'ngx-owl-carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,7 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
     ProductListComponent,
     SearchComponent,
     ProductDetailComponent,
+    ForbiddenComponent,
 
   ],
   imports: [
@@ -54,6 +58,7 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    OwlModule,
     MalihuScrollbarModule.forRoot()
   ],
 

@@ -10,6 +10,7 @@ export class DialogService {
     private dialog: MatDialog
   ) { }
   alert(config: any) {
+    if(typeof config == 'string') config = {message: config}
     this.dialog.open(DialogComponent, {
       //   width: '250px',
       data: {
@@ -20,6 +21,7 @@ export class DialogService {
     });
   }
   warning(config: any) {
+    if(typeof config == 'string') config = {message: config}
     this.dialog.open(DialogComponent, {
       //   width: '250px',
       data: {
@@ -32,6 +34,7 @@ export class DialogService {
     });
   }
   error(config: any) {
+    if(typeof config == 'string') config = {message: config}
     this.dialog.open(DialogComponent, {
       //   width: '250px',
       data: {
@@ -44,6 +47,7 @@ export class DialogService {
     });
   }
   confirm(config: any) {
+    if(typeof config == 'string') config = {message: config}
     this.dialog.open(DialogComponent, {
       //   width: '250px',
       data: {

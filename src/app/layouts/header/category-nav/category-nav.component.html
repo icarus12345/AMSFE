@@ -1,69 +1,20 @@
 <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown" *ngFor="let c of categories">
         <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            Category 1
+            {{c.name}}
         </a>
         <div class="dropdown-menu">
             <div class="d-flex">
                 <ul>
-                    <li><a class="dropdown-item active" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 1</a></li>
+                    <li *ngFor="let clv1 of c.childs"><a class="dropdown-item" routerLink="/product">{{clv1.name}}</a></li>
                 </ul>
                 <ul>
-                    <li><a class="dropdown-item active" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 2</a></li>
+                    <li *ngFor="let clv2 of c.childs[0]?.childs"><a class="dropdown-item" routerLink="/product">{{clv2.name}}</a></li>
                 </ul>
                 <ul>
-                    <li><a class="dropdown-item" href="#">Category lv 3</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 3</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 3</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 3</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 3</a></li>
-                    <li><a class="dropdown-item" href="#">Category lv 3</a></li>
+                    <li *ngFor="let clv3 of c.childs[0]?.childs[0]?.childs"><a class="dropdown-item" routerLink="/product">{{clv3.name}}</a></li>
                 </ul>
             </div>
         </div>
     </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            Category 2
-        </a>
-        <ul class="dropdown-menu">
-            <li>
-                <a class="dropdown-item" href="#">Category lv 1</a>
-            </li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Category lv 1</a></li>
-        </ul>
-    </li>
-    <li class="nav-item "><a class="nav-link">Category 3</a></li>
-    <li class="nav-item "><a class="nav-link">Category 4</a></li>
-    <li class="nav-item "><a class="nav-link" routerLink="/product">Category 5</a></li>
 </ul>

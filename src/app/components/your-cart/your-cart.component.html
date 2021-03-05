@@ -1,21 +1,36 @@
-<mat-nav-list>
-    <a href="https://keep.google.com/" mat-list-item >
-        <span mat-line>Google Keep</span>
-        <span mat-line>Add to a note</span>
-    </a>
+<div>
+    <div mat-subheader>YOUR CART</div>
+    <div class="cart-item-list" malihu-scrollbar [scrollbarOptions]="{ axis: 'y', theme: 'minimal-dark' }">
+        <mat-list  >
+            <mat-list-item *ngFor="let item of items" style="height: auto;">
+                <img matListAvatar [src]="item.product.thumbnail" width="100">
+                <div mat-line>{{item.product.name}}</div>
+                <div mat-line>Option 1</div>
+                <div mat-line class="number-form-field">
+                    <mat-form-field appearance="outline" [hintLabel]="'Max '+item.product.in_stock + ' item(s)'" >
+                        <button 
+                            mat-icon-button 
+                            matPrefix 
+                            (click)="decrease(item)"
+                            [disabled]="!item.quantity"
+                            >
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <input matInput type="text" [ngModel]="item.quantity">
+                        <button 
+                            mat-icon-button 
+                            matSuffix 
+                            (click)="increase(item)"
+                            [disabled]="item.quantity>=item.product.in_stock"
+                            >
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <mat-hint align="end">{{item.quantity * item.product.price | currency}}</mat-hint>
+                        <mat-error>Invalid </mat-error>
+                    </mat-form-field>
+                </div>
 
-    <a href="https://docs.google.com/" mat-list-item >
-        <span mat-line>Google Docs</span>
-        <span mat-line>Embed in a document</span>
-    </a>
-
-    <a href="https://plus.google.com/" mat-list-item >
-        <span mat-line>Google Plus</span>
-        <span mat-line>Share with your friends</span>
-    </a>
-
-    <a href="https://hangouts.google.com/" mat-list-item >
-        <span mat-line>Google Hangouts</span>
-        <span mat-line>Show to your coworkers</span>
-    </a>
-</mat-nav-list>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>

@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
-import { auth } from '@app/mocks'
+import { auth, cart, app } from '@app/mocks'
 
 const mocks = [
-    ...auth
+    ...auth,
+    ...cart,
+    ...app
 ];
 
 @Injectable()
@@ -16,7 +18,7 @@ export class MockInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // console.group('MockInterceptor');
         const { url, method, headers, body, params } = request;
-        console.log({ url, method, headers, body, params });
+        console.log({ url, method, headers, body, params })
         // helper functions
         function param2Obj(url: string) {
             const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
@@ -65,7 +67,9 @@ export class MockInterceptor implements HttpInterceptor {
                     reg.test(url) &&
                     mock.method.toLowerCase() == method.toLowerCase()
                 ) {
-                    return ok(mock.response({}))
+                    return ok(mock.response({
+                        url, method, headers, body, params
+                    }))
                 }
             }
             return next.handle(request);
